@@ -1,0 +1,54 @@
+<div class="back-rect">
+<div class="center card text-white bg-secondary mb-3">
+  <div class="card-header">{{recipe?.name}}</div>
+  <div class="card-body">
+    <h4>Setup GordoBot</h4>
+    <div *ngFor="let content of recipe?.setupContents; let contentidx=index;">
+      Slot {{contentidx}} contains {{content}}
+    </div>
+    <div *ngFor="let step of recipe?.steps; let stepidx=index;"
+      [ngClass]="(stepidx ===  activeStepidx) ? 'select_instruction' : 'unselect_instruction'">
+      <h4 class="card-title">Current Instruction</h4>
+      <p class="card-text">{{step?.instruction}}</p>
+      <h4 class="card-title">Current Ingredient Dispensed</h4>
+      <p class="card-text" *ngIf="!(step?.amount === 0)">{{step?.amount}} {{step?.unit}} of {{step.ingredient}}</p>
+    </div>
+
+    <div *ngIf="this.activeStepidx < this.recipe.steps.length; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+      <button type="button" class="btn btn-success" (click)="onNextClick()"
+        *ngIf="recipe.steps[activeStepidx].ifActionable">Dispense</button>
+      <button type="button" class="btn btn-info" (click)="onNextClick()" 
+        *ngIf="!recipe.steps[activeStepidx].ifActionable">Next</button>
+    </ng-template>
+    <ng-template #elseBlock>
+      <a href="/home" role="button" class="btn btn-info" (click)="onNextClick()">Finish</a>
+    </ng-template>
+
+    <div id="box" style="margin: auto; margin-top: 10px;" *ngIf="loading">
+      <div id="bar"></div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<!-- <div>
+  <h5>{{recipe?.name}}</h5>
+  <h6>instructions</h6>
+  <div *ngFor="let step of recipe?.steps; let stepidx=index;"
+    [ngClass]="{'select_instruction': (stepidx ===  activeStepidx) }">
+    {{step?.instruction}}
+  </div>
+  <h6>ingredients</h6>
+  <div *ngFor="let step of recipe?.steps; let stepidx=index;"
+    [ngClass]="{'select_instruction': (stepidx ===  activeStepidx) }">
+    {{step?.amount}} {{step?.unit}}
+  </div>
+</div>
+
+<button type="button" (click)="onNextClick()"
+  *ngIf="recipe.steps[activeStepidx].ifActionable">Next</button> -->

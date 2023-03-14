@@ -1,0 +1,82 @@
+/* Execute's private CSS styles */
+label {
+  color: #435960;
+  font-weight: bold;
+}
+input {
+  font-size: 1em;
+  padding: .5rem;
+}
+button {
+  margin-top: 20px;
+  margin-right: .5rem;
+  background-color: transparent;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
+}
+
+button.new {
+  background-color: transparent;
+  margin: 0px;
+  padding: 0px;
+}
+button.task {
+  background-color: transparent;
+  margin: 0px;
+  padding: 0px;
+  height:64px;
+  width: 50%;
+  margin: 0% 25% 0% 25%;
+}
+.load {
+  border: 2px solid #04AEDA;
+  color: #04AEDA;
+  font-weight: bold;
+  width: 50%;
+  margin: 0% 25% 0% 25%;
+  padding: 5px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.checkmark {
+  border: 2px solid #2CA02C;
+  color: #2CA02C;
+  font-weight: bold;
+  width: 100%;
+  padding: 5px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  padding: 0px 15px 0px 15px;
+}
+.inline-r {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  padding: 0px 15px 0px 15px;
+}
+.border {
+  border: 1px solid grey;
+}

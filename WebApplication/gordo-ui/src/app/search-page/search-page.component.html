@@ -1,0 +1,13 @@
+<div class="back-rect">
+  <div style="display:flex;align-items:center;height:40px;width:100px;">
+    <button type="button" class="back" (click)="goBack()"><img src="assets/images/back.png" alt="Back" width="30" height="30"></button>
+    <p>Back</p>
+  </div>
+
+  <p>Search results:</p>
+  <ul class="search-result" style="list-style-type:none;">
+    <li *ngFor="let recipe of recipes$ | async" >
+      <a routerLink="/preview/{{recipe.id}}">{{recipe.name}}</a>
+    </li>
+  </ul>
+</div>

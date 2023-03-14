@@ -1,0 +1,45 @@
+<div *ngIf="recipe">
+  <div class="back-rect">
+    <h2 style="text-align:center;">{{recipe.name | uppercase}} Steps</h2><br>
+    <p *ngIf="!recipe.steps" style="text-align:center">No steps listed.</p>
+    <div *ngIf="step">
+      <p style="text-align:center">Step 1: {{step.instruction}</p><br><br>
+      
+      <div *ngIf="step.ifActionable; then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock>
+        <button type="button" class="task" title="mark complete" (click)="Complete()"><div class="checkmark">
+          <img src="assets/images/checkmark.png" alt="Checkmark" width="40" height="40">
+          <p style="padding-left:10px;">Mark as Complete</p>
+        </div></button>
+      </ng-template>
+      <ng-template #elseBlock>
+        <div class="load">
+          <img src="assets/images/loading.png" alt="Loading" width="40" height="40">
+          <p style="padding-left:10px;">Task in Progress</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- below white box -->
+  <div class="inline-r">
+    <div style="width:52px;height:40px;">
+      <div *ngIf="user.speaker; then thenBlock2 else elseBlock2"></div>
+      <ng-template #thenBlock2>
+        <button type="button" class="new" title="turn audio off" (click)="flipSpeaker()">
+          <img src="assets/images/audio.png" alt="AudioOn" width="52" height="40">
+        </button>
+      </ng-template>
+      <ng-template #elseBlock2>
+        <button type="button" class="new" title="turn audio on" (click)="flipSpeaker()">
+          <img src="assets/images/no-audio.png" alt="AudioOff" width="52" height="40">
+        </button>
+      </ng-template>
+    </div>
+
+    <a routerLink="/preview/{{recipe.id}}" style="padding-right:5px;">
+      <img src="assets/images/stop.png" alt="Stop" width="40" height="42" style="padding-top:2px;">
+    </a>
+    <img src="assets/images/skip.png" alt="Skip" width="40" height="40">
+  </div>
+</div>

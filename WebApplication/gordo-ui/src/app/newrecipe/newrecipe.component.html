@@ -1,0 +1,72 @@
+<div class="back-rect">
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()" class="center">
+    <label for="ownerUsername"> Username: </label>
+    <input id="ownerUsername" type="text" formControlName="ownerUsername" required>
+  
+    <p>--------------------------</p>
+    
+    <label for="name"> Recipe Name: </label>
+    <input id="name" type="text" formControlName="name" required>
+
+    <label for="approximateTime"> approximateTime: </label>
+    <input id="approximateTime" type="number" formControlName="approximateTime" required>
+
+    <label for="isPrivateRecipe"> isPrivateRecipe: </label>
+    <input id="isPrivateRecipe" type="checkbox" formControlName="isPrivateRecipe">
+
+    <div formArrayName="setupContents">
+        <h2>What is each slot?</h2>
+    
+        <div *ngFor="let content of setupContents.controls; let ci=index">
+          <!-- The repeated alias template -->
+          <label for="content-{{ ci }}">Content in Slot {{ ci }}:</label>
+          <input id="content-{{ ci }}" type="text" [formControlName]="ci">
+        </div>
+        <button type="button" (click)="addSetupContents()">+ Add another content</button>
+      </div>
+  
+    <div formArrayName="steps">
+      <h2>Steps</h2>
+  
+      <div *ngFor="let step of steps.controls; let i=index">
+        <!-- The repeated step template -->
+        <div [formGroupName]="i">
+            <h4>Step {{i+1}}</h4>
+        
+            <label for="instruction-{{ i }}">instruction: </label>
+            <input id="instruction-{{ i }}" type="text" formControlName="instruction" required>
+        
+            <label for="destinationPosition-{{ i }}">destinationPosition: </label>
+            <input id="destinationPosition-{{ i }}" type="number" formControlName="destinationPosition" required>
+        
+            <label for="ingredient-{{ i }}">ingredient: </label>
+            <input id="ingredient-{{ i }}" type="text" formControlName="ingredient" required>
+        
+            <label for="amount-{{ i }}">amount: </label>
+            <input id="amount-{{ i }}"type="number" formControlName="amount" required>
+
+            <label for="unit-{{ i }}">unit: </label>
+            <input id="unit-{{ i }}"type="text" formControlName="unit" required>
+
+            <label for="ifActionable-{{ i }}">ifActionable: </label>
+            <input id="ifActionable-{{ i }}"type="checkbox" formControlName="ifActionable">
+        </div>
+      </div>
+
+      <button style="margin-top: 30px;" type="button" (click)="addStep()">+ Add another step</button>
+    </div>
+  
+  
+    <p style="margin-top: 30px;">Complete the form to enable button.</p>
+    <button class="btn btn-success" type="submit" [disabled]="!recipeForm.valid">Submit</button>
+  </form>
+  
+  <hr>
+  
+  <p>Form Value: {{ recipeForm.value | json }}</p>
+  
+  <p>Form Status: {{ recipeForm.status }}</p>
+  
+  <!-- <button type="button" (click)="updateProfile()">Update Profile</button> -->
+
+</div>

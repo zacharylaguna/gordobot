@@ -1,0 +1,31 @@
+<div class="navbar">
+  <!-- <nav>
+    <a routerLink="/profile"><img src="assets/images/avatar.png" alt="Avatar" width="40" height="40"></a>
+  </nav> -->
+  <nav>
+    <a routerLink=""><img src="assets/images/avatar.png" alt="Avatar" width="40" height="40"></a>
+  </nav>
+
+  <!-- <app-search></app-search> -->
+  <a href="/home" style="text-decoration: none; color: black;">
+    <h1>
+      GordoBot
+    </h1>
+  </a>
+  
+  <!-- mute feature -->
+  <div style="width: 60px;">
+    <div *ngIf="user.mic; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+      <button type="button" class="new" title="turn mic off" (click)="flipMic()">
+        <img src="assets/images/mic.png" alt="MicOn" width="46" height="40">
+      </button>
+    </ng-template>
+    <ng-template #elseBlock>
+      <button type="button" class="new" title="turn mic on" (click)="flipMic()">
+        <img src="assets/images/no-mic.png" alt="MicOff" width="46" height="40">
+      </button>
+    </ng-template>
+  </div>
+
+</div>

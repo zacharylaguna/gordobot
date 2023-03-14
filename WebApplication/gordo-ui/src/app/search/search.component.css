@@ -1,0 +1,30 @@
+/* Search private styles */
+input {
+  padding: .5rem;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  display: block;
+}
+input:focus {
+  outline: #336699 auto 1px;
+}
+
+.searchbar {
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 275px;
+    height: 60px;
+}
+
+#search-component {
+  padding-right: 5px;
+}
+
+a {
+  width:32px;
+  height:32px;
+}

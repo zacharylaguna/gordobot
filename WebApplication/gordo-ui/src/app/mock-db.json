@@ -1,0 +1,38 @@
+{   
+    "name" : "Pasta",
+    "user" : "user10619",
+    "steps" : [
+        {
+            "number" : 1,
+            "data" : "Add salt to a pot of water",
+            "ingredients" : [
+                {
+                    "name" : "water",
+                    "amount" : 2,
+                    "measurement_type" : "liquid",
+                    "measurement_label" : "quarts"
+                },
+                {
+                    "name" : "salt",
+                    "amount" : 0.75,
+                    "measurement_type" : "solid",
+                    "measurement_label" : "tablespoons"
+                }
+            ],
+            "appliances" : []
+        },
+        {
+            "number" : 2,
+            "data" : "Boil the water (heat until steam and large bubbles appear)",
+            "ingredients" : [],
+            "appliances" : [
+                {
+                    "name" : "stove",
+                    "settings" : {
+                        "temperature" : "high"
+                    }
+                }
+            ]
+        }
+    ]
+}

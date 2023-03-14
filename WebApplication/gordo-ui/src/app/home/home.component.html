@@ -1,0 +1,40 @@
+<div class="back-rect">
+  <!-- <form (submit)="onLogin()"> -->
+    <!-- <input [(ngModel)]="username"> -->
+  <!-- </form> -->
+
+  <h6>Username</h6>
+  <input (keyup.enter)="onLogin($event)" placeholder="public">
+  <h2>My Recipes</h2><br>
+
+  <!-- <div>
+    <label for="new-recipe">Recipe name: </label>
+    <input id="new-recipe" #recipeName /> -->
+
+    <!-- (click) passes input value to add() and then clears the input -->
+    <!-- <button type="button" class="add-button" (click)="add(recipeName.value); recipeName.value=''">
+      Add recipe
+    </button>
+  </div> -->
+
+  <ul class="recipes">
+    <li *ngFor="let recipe of recipes; let recipeidx=index;">
+      <div class="inline" *ngIf="recipe.ownerUsername === username || recipe.ownerUsername === 'public'">
+        <button type="button" class="delete" title="delete recipe" (click)="deleteRecipe(recipe.id)">x</button>
+        <a routerLink="/preview/{{recipe.id}}" [ngClass]="(recipe.ownerUsername === 'public') ? 'public' : 'private' ">
+        <!-- <a [routerLink]="['/preview', recipe.id]"> -->
+          <!-- {{recipe.id}} -->
+          {{recipe.name}}
+        </a>
+        <!-- <img *ngIf="recipe.ownerUsername === 'public'" src="assets/images/no-mic.png" alt="MicOff" width="46" height="40"> -->
+      </div>
+    </li>
+  </ul>
+</div>
+
+<a href="/newrecipe" role="button" class="bottom-right" title="add recipe" (click)="openModal()">
+  <img src="assets/images/addbutton.png" alt="addbutton" width="46" height="40">
+</a>
+
+<a href="/home" role="button" class="btn btn-warning bottom-left" title="reset recipe list" (click)="reset()">reset</a>
+

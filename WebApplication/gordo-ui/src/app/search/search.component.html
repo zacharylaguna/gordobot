@@ -1,0 +1,9 @@
+<div class="searchbar">
+  <div id="search-component">
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="Search" />
+  </div>
+
+    <a routerLink="/search" [queryParams]="{term: searchBox.value}">
+      <img src="assets/images/search.png" alt="Search" width="30" height="30">
+    </a>
+</div>
